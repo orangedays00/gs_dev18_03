@@ -45,7 +45,7 @@ $.ajaxSetup({
 
 // Qiitaの記事をとってきて表示
 let getArticle = function(){
-    $.get('http://qiita.com/api/v2/items',
+    $.get('https://qiita.com/api/v2/items',
             { page:no, per_page:"20" }
         ).done(function(data) {
             // 見出しを作成
