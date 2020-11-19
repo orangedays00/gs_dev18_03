@@ -1,0 +1,269 @@
+body {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.heading {
+    font-size: 36px;
+    height: 50px;
+    margin: 10px;
+    line-height: 50px;
+}
+
+/*--------------------
+タブ切り替え
+------------------- */
+
+/*タブ切り替え全体のスタイル*/
+.tabs {
+    margin-top: 50px;
+    padding-bottom: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/*タブのスタイル*/
+.tab-item {
+    width: calc(100%/2);
+    height: 50px;
+    border-bottom: 3px solid #55c500;
+    background-color: #d9d9d9;
+    line-height: 50px;
+    font-size: 16px;
+    text-align: center;
+    color: #565656;
+    display: block;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+.tab-item:hover {
+    opacity: 0.75;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="tab-item"] {
+    display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab-content {
+    display: none;
+    clear: both;
+    overflow: hidden;
+}
+
+
+/*選択されているタブのコンテンツのみを表示する*/
+#contentTab:checked ~ #contentList,
+#saveTab:checked ~ #contentSave {
+    display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab-item {
+    background-color: #55c500;
+    color: #fff;
+}
+
+
+
+
+/* -----------------
+記事一覧
+-------------------- */
+.main-list--content, .main-save--content {
+    width: 1140px;
+    /* height: 1200px; */
+    padding: 30px;
+}
+
+.main-list--table, .main-save--table {
+    width: 1140px;
+    border: 1px solid #333;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.main-list--table {
+    height: 1100px;
+}
+
+.main-list--table_line {
+    border: 1px solid #333;
+    /* height: 30px; */
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.main-list--table_date, .main-save--table_date {
+    width: 130px;
+    /* font-size: 0.9rem; */
+}
+
+.main-list--table_title {
+    width: 630px;
+}
+
+.main-list--table_tag, .main-save--table_tag{
+    word-break: break-all;
+}
+
+.main-list--table_center {
+    text-align: center;
+}
+
+.main-list--table_tagtext {
+    margin: 3px 0;
+}
+
+/*---------------
+保存した記事ページ
+--------------- */
+
+.main-save--table_line {
+    border: 1px solid #333;
+    height: 30px;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.main-save--table_delete {
+    text-align: center;
+    width: 110px;
+}
+
+.main-save--table_title {
+    width: 630px;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+.check-box {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 15px;
+    position: relative;
+    width: auto;
+}
+.check-box::before {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    content: '';
+    display: block;
+    height: 16px;
+    left: 5px;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    width: 16px;
+}
+.check-box::after {
+    border-right: 6px solid #55c500;
+    border-bottom: 3px solid #55c500;
+    content: '';
+    display: block;
+    height: 20px;
+    left: 7px;
+    margin-top: -16px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: rotate(45deg);
+    width: 9px;
+}
+input[type=checkbox]:checked + .check-box::before {
+    border-color: #666;
+}
+input[type=checkbox]:checked + .check-box::after {
+    opacity: 1;
+}
+
+
+.main-list--buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.main-list--buttons_btn {
+    display: block;
+    border: 1px solid #333;
+    border-radius: 4px;
+    width: 150px;
+    height: 30px;
+    padding: 10px;
+    margin: 10px 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+a.main-list--buttons_btn {
+    text-decoration: none;
+}
+
+a.main-list--buttons_btn,a.main-list--buttons_btn:focus,a.main-list--buttons_btn:active {
+    color: #333;
+}
+
+/* -----------------
+保存一覧の削除ボタン
+------------------*/
+
+.main-save--button {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    position: relative;
+    display: inline-block;
+    padding: 0.7rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: #212529;
+    border-radius: 0.5rem;
+}
+
+
+
+.main-save--button_green,
+a.main-save--button_green {
+    color: #fff;
+    background-color: #55c500;
+}
+.main-save--button_green:hover,
+a.main-save--button_green:hover {
+    color: #fff;
+    background: #55c500;
+}
+
+.main-save--button_deepgreen,
+a.main-save--button_deepgreen {
+    color: #fff;
+    background-color: #3d9200;
+}
+.main-save--button_deepgreen:hover,
+a.main-save--button_deepgreen:hover {
+    color: #fff;
+    background: #3d9200;
+}
+
+
+.first-page {
+    opacity: 0;
+    pointer-events: none;
+}
