@@ -177,7 +177,6 @@ document.getElementById('prev').addEventListener('click',()=>{
     document.getElementById('js_append_area').innerHTML = "";
     --no;
     getArticle();
-    console.log(no);
     // １ページ目では前に戻れないため、表示を消し、クリックできないようのクラスを付与
     if(no == 1){
         document.getElementById('prev').classList.add('first-page');
@@ -199,18 +198,13 @@ document.getElementById('next').addEventListener('click',()=>{
 // チェックした記事をローカルストレージに保存
 
 function saveStorage(ele){
-    console.log(ele);
     const saveId = ele;
-    console.log(saveId);
     const saveIndex = saveId.indexOf('k');
-    console.log(saveIndex);
     const saveNumber = saveId.slice(saveIndex + 1);
-    console.log(saveNumber);
     const saveText = document.getElementById(`saveValue${saveNumber}`).textContent;
     const saveUrl = document.getElementById(`saveValue${saveNumber}`).href;
 
     const checkInput = document.getElementById(`check${saveNumber}`);
-    console.log(checkInput)
 
     const now = new Date();
     const nowYear = now.getFullYear();
@@ -330,15 +324,10 @@ function saveTabReload(){
 
 // 削除ボタンを押下した際に、ローカルストレージの値と、該当の記事を一覧から削除
 function deleteStorage(ele){
-    console.log(ele);
         const deleteId = ele;
-        console.log(deleteId);
         const deleteIndex = deleteId.indexOf('y');
-        console.log(deleteIndex);
         const deleteNumber = deleteId.slice(deleteIndex + 1);
-        console.log(deleteNumber);
         const deleteText = document.getElementById(`deleteValue${deleteNumber}`).textContent;
-        console.log(deleteText);
 
         localStorage.removeItem(deleteText);
         document.getElementById(`deleteTr${deleteNumber}`).remove();
