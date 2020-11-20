@@ -147,10 +147,17 @@ let getArticle = function(){
 
                 // リンク化しなかったタグをテキスト化
                 for(let n = 0;n<array.length;n++){
-                    const tagDiv = document.createElement('div');
-                    tagDiv.classList.add('main-list--table_tagtext');
-                    tagDiv.textContent = `${array[n]},`;
-                    tdTag.appendChild(tagDiv);
+                    if(n != (array.length - 1)){
+                        const tagDiv = document.createElement('div');
+                        tagDiv.classList.add('main-list--table_tagtext');
+                        tagDiv.textContent = `${array[n]},`;
+                        tdTag.appendChild(tagDiv);
+                    }else{
+                        const tagDiv = document.createElement('div');
+                        tagDiv.classList.add('main-list--table_tagtext');
+                        tagDiv.textContent = `${array[n]}`;
+                        tdTag.appendChild(tagDiv);
+                    }
                 }
 
                 tdLgtm.textContent = `${value.likes_count}`;
